@@ -1,0 +1,28 @@
+{% for article in articles_page.object_list %}
+
+<div class="blog-post">
+    <h2 class="blog-post-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+    <p class="blog-post-meta"><time datetime="{{ article.locale_date }}">{{ article.locale_date }}</time>
+        by
+         {% for author in article.authors %}
+            {% set author_name = author.name | title %}
+            {% if AUTHORS_BIO and author.name.lower() in AUTHORS_BIO %}
+                {% set author_name = AUTHORS_BIO[author.name.lower()].name or author.name %}
+            {% endif %}
+            <a href="{{ SITEURL }}/{{ author.url }}">{{ author_name }}</a>
+        {% endfor %}
+    </p>
+    {% if SHOW_FULL_ARTICLE %}
+    <p>{{ article.content }}</p>
+     {% else %}
+            <p>
+            {% if article.has_summary %}
+                {{ article.summary }}
+            {% elif article.summary %}
+                {{ article.summary|striptags|truncate(250) }}
+            {% endif %}
+            </p>
+    {% endif %}
+</div>
+{% endfor %}
+{% include "blocks/pagination.html" %}
