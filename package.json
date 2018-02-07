@@ -1,0 +1,22 @@
+{
+  "name": "aib",
+  "version": "1.0.0",
+  "description": "Application Interface Bootstrap minimal theme for pelican",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/63phc/aib.git"
+  },
+  "keywords": [
+    "pelican"
+  ],
+  "author": "63phc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/63phc/aib/issues"
+  },
+  "homepage": "https://github.com/63phc/aib#readme",
+  "dependencies": {
+    "bootstrap": "4.0.0",
+    "font-awesome": "^4.6.1"
+  }
+}
