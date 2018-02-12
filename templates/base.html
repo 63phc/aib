@@ -29,8 +29,10 @@
 <body>
 
     {% include 'blocks/navigation.html' %}
+<main role="main" class="container">
 
     {% block content %}{% endblock content %}
+</main><!-- /.container -->
 
     {% include 'blocks/footer.html'%}
 

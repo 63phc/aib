@@ -11,6 +11,11 @@
             {% endif %}
             <a href="{{ SITEURL }}/{{ author.url }}">{{ author_name }}</a>
         {% endfor %}
+
+        <!--TAGS-->
+        {% if article.tags %}
+            {% for tag in article.tags %}<a class="badge badge-pill badge-dark" href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>&nbsp;{% if not loop.last %}{% endif %}{% endfor %}
+        {% endif %}
     </p>
     {% if SHOW_FULL_ARTICLE %}
     <p>{{ article.content }}</p>
